@@ -1,0 +1,62 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mkdocs-git-sync.fullname" . }}
+data:
+  nginx.conf: |
+    worker_processes  1;
+    pid /tmp/nginx.pid;
+    error_log  /var/log/nginx/error.log warn;
+    events {
+      # When you need > 8000 * cpu_cores connections, you start optimizing your OS,
+      # and this is probably the point at which you hire people who are smarter than
+      # you, as this is *a lot* of requests.
+      worker_connections 8000;
+    }
+    http {
+        proxy_temp_path /tmp/proxy_temp;
+        client_body_temp_path /tmp/client_temp;
+        fastcgi_temp_path /tmp/fastcgi_temp;
+        uwsgi_temp_path /tmp/uwsgi_temp;
+        scgi_temp_path /tmp/scgi_temp;
+
+        include       /etc/nginx/mime.types;
+        default_type  application/octet-stream;
+
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log  /var/log/nginx/access.log  main;
+
+        sendfile        on;
+        #tcp_nopush     on;
+
+        keepalive_timeout  65;
+
+        #gzip  on;
+
+        include /etc/nginx/conf.d/*.conf;
+    }
+  mkdocs.yml: |
+    ---
+    site_name: {{ .Values.config.siteName }}
+    docs_dir: /app/source_repo/{{ .Values.config.docsDir }}
+    site_dir: /app/site
+    site_url: {{ .Values.config.siteUrl }}
+    edit_uri: {{ .Values.config.editUri }}
+
+    theme:
+      {{ toYaml .Values.config.theme | nindent 8 }}
+
+    markdown_extensions:
+      {{ toYaml .Values.config.extensions | nindent 8 }}
+
+    plugins:
+      {{ toYaml .Values.config.plugins | nindent 8 }}
+
+    nav:
+      {{ toYaml .Values.config.nav | nindent 8 }}
+  requirements.txt: |
+    {{ .Values.config.requirements | nindent 8 }}

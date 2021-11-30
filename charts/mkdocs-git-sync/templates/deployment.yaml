@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "mkdocs-git-sync.fullname" . }}
+  labels:
+    {{- include "mkdocs-git-sync.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "mkdocs-git-sync.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "mkdocs-git-sync.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "mkdocs-git-sync.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: GIT_CREDENTIALS
+              value: {{ .Values.config.credentials }}
+            - name: GIT_REPO
+              value: {{ .Values.config.repo }}
+            - name: GIT_BRANCH
+              value: {{ .Values.config.branch }}
+            - name: UPDATE_INTERVAL
+              value: "{{ .Values.config.updateInterval }}"
+          volumeMounts:
+            - name: site
+              mountPath: /app/site
+            - name: config-mkdocs
+              mountPath: /app/config/mkdocs.yml
+              subPath: mkdocs.yml
+              readOnly: true
+            - name: config-requirements
+              mountPath: /app/config/requirements.txt
+              subPath: requirements.txt
+              readOnly: true
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        - name: nginx
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image_nginx.repository }}:{{ .Values.image_nginx.tag }}"
+          imagePullPolicy: {{ .Values.image_nginx.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - name: site
+              mountPath: /usr/share/nginx/html
+            - name: config-nginx
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              readOnly: true
+      volumes:
+        - name: site
+          emptyDir: {}
+        - name: config-nginx
+          configMap:
+            name: {{ include "mkdocs-git-sync.fullname" . }}
+            items:
+              - key: nginx.conf
+                path: nginx.conf
+        - name: config-mkdocs
+          configMap:
+            name: {{ include "mkdocs-git-sync.fullname" . }}
+            items:
+              - key: mkdocs.yml
+                path: mkdocs.yml
+        - name: config-requirements
+          configMap:
+            name: {{ include "mkdocs-git-sync.fullname" . }}
+            items:
+              - key: requirements.txt
+                path: requirements.txt
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
