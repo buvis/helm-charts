@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: tbouska/mkdocs-git-sync
+  repository: buvis/mkdocs-git-sync
   pullPolicy: Always
 
 image_nginx:
