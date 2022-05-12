@@ -2,6 +2,21 @@ apiVersion: v1
 entries:
   kah-common:
   - apiVersion: v2
+    created: "2022-05-12T16:12:36.671872126Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.4.2
+    description: A KaH-common powered chart template
+    digest: 3eb14f3d0f70265333f508684200c188bdf069f21800d405685de5eeccd1c13d
+    maintainers:
+    - email: tomas@buvis.net
+      name: Tomáš Bouška
+    name: kah-common
+    urls:
+    - https://github.com/buvis-net/helm-charts/releases/download/kah-common-4.4.2/kah-common-4.4.2.tgz
+    version: 4.4.2
+  - apiVersion: v2
     created: "2022-01-31T20:23:58.627985657Z"
     dependencies:
     - name: common
@@ -50,4 +65,4 @@ entries:
     urls:
     - https://github.com/buvis-net/helm-charts/releases/download/mkdocs-git-sync-0.1.0/mkdocs-git-sync-0.1.0.tgz
     version: 0.1.0
-generated: "2022-01-31T20:23:58.628215258Z"
+generated: "2022-05-12T16:12:36.671910727Z"
