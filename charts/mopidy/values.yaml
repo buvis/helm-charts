@@ -1,0 +1,188 @@
+# Default values for mopidy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: buvis/mopidy
+  tag:
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  fsGroup: 568
+  runAsUser: 568
+  runAsGroup: 568
+
+securityContext:
+  allowPrivilegeEscalation: false
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    enabled: false
+    ports:
+      http:
+        port: 6600
+  http:
+    enabled: false
+    type: ClusterIP
+    externalTrafficPolicy: Local
+    ports:
+      http-tcp:
+        enabled: true
+        port: 6680
+        protocol: TCP
+        targetPort: 6680
+
+# -- Enable and configure ingress settings for the chart under this key.
+# @default -- See values.yaml
+ingress:
+  main:
+    enabled: false
+    hosts:
+    - host: mopidy.local
+      paths:
+      - path: /
+        pathType: Prefix
+        service:
+          port: 6680
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  media:
+    enabled: false
+    mountPath: /app/mopidy/media
+  data:
+    enabled: false
+    mountPath: /app/mopidy/local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+config: |
+  [core]
+  cache_dir = /app/mopidy/cache
+  config_dir = /config
+  data_dir = /app/mopidy
+
+  [logging]
+  verbosity = 0
+  format = %(levelname)-8s %(asctime)s [%(process)d:%(threadName)s] %(name)s\n  %(message)s
+  color = true
+  config_file =
+
+  [audio]
+  mixer = software
+  output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! wavenc ! tcpclientsink host=<SNAPCAST_SERVER_IP> port=4955
+  mixer_volume = 80
+
+  [file]
+  enabled = true
+  media_dirs = /app/mopidy/media
+  show_dotfiles = false
+  excluded_file_extensions =
+    .directory
+    .html
+    .jpeg
+    .jpg
+    .log
+    .nfo
+    .pdf
+    .png
+    .txt
+    .zip
+  follow_symlinks = false
+  metadata_timeout = 1000
+
+  [local]
+  library = sqlite
+  scan_flush_threshold = 100
+  media_dir = /app/mopidy/media
+  scan_timeout = 4000
+  excluded_file_extensions =
+      .bmp
+      .cue
+      .png
+      .jpg
+      .jpeg
+      .doc
+      .docx
+      .nfo
+      .txt
+      .m3u
+      .sfv
+      .zip
+
+  [m3u]
+  playlists_dir = /app/mopidy/media/000-playlists
+
+  [mpd]
+  hostname = 0.0.0.0
+  zeroconf = $hostname
+
+  [http]
+  enabled = true
+  hostname = 0.0.0.0
+  port = 6680
+  static_dir =
+  zeroconf = $hostname
+
+  [scrobbler]
+  enabled = false
+  # username = <LASTFM_USERNAME>
+  # password = <LASTFM_PASSWORD>
+
+  [tunein]
+  timeout = 600000
+
+  [youtube]
+  enabled = true
+
+  [tidal]
+  enabled = false
+  quality = LOSSLESS
+
+  [defaultplaylist]
+  enabled = false
+  defaultplaylist_name = play-on-start
+  autoplay = true
