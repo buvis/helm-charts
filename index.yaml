@@ -65,4 +65,19 @@ entries:
     urls:
     - https://github.com/buvis-net/helm-charts/releases/download/mkdocs-git-sync-0.1.0/mkdocs-git-sync-0.1.0.tgz
     version: 0.1.0
-generated: "2022-05-12T16:12:36.671910727Z"
+  mopidy:
+  - apiVersion: v2
+    appVersion: 3.64.0
+    created: "2022-06-24T13:07:45.811595217Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.4.2
+    description: Deploy Mopidy music server.
+    digest: 0e1a1f4dd10bc05685faa6f0973fa08aa4f7fdb2b135cb8cbd7eb23369f7f8cf
+    name: mopidy
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/mopidy-0.0.1/mopidy-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-06-24T13:07:45.811608818Z"
