@@ -32,8 +32,8 @@ securityContext:
 service:
   main:
     ports:
-      control:
-        port: 1705
+      http:
+        port: 1780
   audio:
     enabled: true
     type: ClusterIP
@@ -44,16 +44,16 @@ service:
         port: 1704
         protocol: TCP
         targetPort: 1704
-  http:
+  control:
     enabled: true
     type: ClusterIP
     externalTrafficPolicy: Local
     ports:
-      http:
+      control:
         enabled: true
-        port: 1780
+        port: 1705
         protocol: TCP
-        targetPort: 1780
+        targetPort: 1705
   stream1:
     enabled: true
     type: ClusterIP
