@@ -37,19 +37,24 @@ securityContext:
 service:
   main:
     enabled: false
-    ports:
-      http:
-        port: 6600
-  http:
-    enabled: false
     type: ClusterIP
     externalTrafficPolicy: Local
     ports:
       http-tcp:
         enabled: true
-        port: 6680
+        port: 80
         protocol: TCP
         targetPort: 6680
+  zeroconf:
+    enabled: false
+    type: ClusterIP
+    externalTrafficPolicy: Local
+    ports:
+      zeroconf:
+        enabled: true
+        port: 6600
+        protocol: TCP
+        targetPort: 6600
 
 # -- Enable and configure ingress settings for the chart under this key.
 # @default -- See values.yaml
