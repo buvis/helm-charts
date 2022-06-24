@@ -68,6 +68,20 @@ entries:
   mopidy:
   - apiVersion: v2
     appVersion: v3.64.0
+    created: "2022-06-24T15:05:47.188427064Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.4.2
+    description: Deploy Mopidy music server.
+    digest: 1bc0857f209eaf7d4b5fe0b20d7e5ff33c55178ec24419d5efc643ad0ee402e1
+    name: mopidy
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/mopidy-0.2.0/mopidy-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
+    appVersion: v3.64.0
     created: "2022-06-24T14:28:27.549889161Z"
     dependencies:
     - name: common
@@ -122,4 +136,4 @@ entries:
     urls:
     - https://github.com/buvis/helm-charts/releases/download/mopidy-0.0.1/mopidy-0.0.1.tgz
     version: 0.0.1
-generated: "2022-06-24T14:28:27.550043861Z"
+generated: "2022-06-24T15:05:47.188465465Z"
