@@ -69,10 +69,10 @@ ingress:
 persistence:
   media:
     enabled: false
-    mountPath: /app/mopidy/media
+    mountPath: /media
   data:
     enabled: false
-    mountPath: /app/mopidy/local
+    mountPath: /app
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
