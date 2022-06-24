@@ -4,9 +4,9 @@
 {{/* Append the hardcoded settings */}}
 {{- define "mopidy.hardcodedValues" -}}
 persistence:
-  mopidy-config:
+  config:
     enabled: "true"
-    mountPath: "/app/mopidy.conf"
+    mountPath: "/config/mopidy.conf"
     subPath: "mopidy.conf"
     type: "custom"
     volumeSpec:
