@@ -181,6 +181,20 @@ entries:
   snapserver:
   - apiVersion: v2
     appVersion: v0.26.0
+    created: "2022-06-24T20:46:28.794690958Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.4.2
+    description: Deploy Snapcast server
+    digest: e639426f307883bd59c37a2d5ff3e257b80abf380f841ec7e96e5dc972f7a2a6
+    name: snapserver
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/snapserver-0.0.3/snapserver-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: v0.26.0
     created: "2022-06-24T20:02:29.603055485Z"
     dependencies:
     - name: common
@@ -207,4 +221,4 @@ entries:
     urls:
     - https://github.com/buvis/helm-charts/releases/download/snapserver-0.0.1/snapserver-0.0.1.tgz
     version: 0.0.1
-generated: "2022-06-24T20:02:29.603087885Z"
+generated: "2022-06-24T20:46:28.794732958Z"
