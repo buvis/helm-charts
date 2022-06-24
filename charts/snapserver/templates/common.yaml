@@ -6,7 +6,7 @@
 persistence:
   config:
     enabled: "true"
-    mountPath: "/etc"
+    mountPath: "/etc/snapserver.conf"
     subPath: "snapserver.conf"
     type: "custom"
     volumeSpec:
