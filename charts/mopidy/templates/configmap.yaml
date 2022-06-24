@@ -12,9 +12,9 @@ data:
         {{- .Values.config.customConfig | nindent 4 }}
     {{- else }}
     [core]
-    cache_dir = /app/mopidy/cache
+    cache_dir = /app/cache
     config_dir = /config
-    data_dir = /app/mopidy
+    data_dir = /app
 
     [logging]
     verbosity = 0
@@ -24,12 +24,12 @@ data:
 
     [audio]
     mixer = software
-    output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! wavenc ! tcpclientsink host={{ .Values.config.snapserverIP }} port=4955
+    output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! wavenc ! tcpclientsink host={{ .Values.config.snapserver.ip }} port={{ .Values.config.snapserver.port }}
     mixer_volume = 80
 
     [file]
     enabled = true
-    media_dirs = /app/mopidy/media
+    media_dirs = /media
     show_dotfiles = false
     excluded_file_extensions =
         .directory
@@ -48,7 +48,7 @@ data:
     [local]
     library = sqlite
     scan_flush_threshold = 100
-    media_dir = /app/mopidy/media
+    media_dir = /media
     scan_timeout = 4000
     excluded_file_extensions =
         .bmp
@@ -65,7 +65,7 @@ data:
         .zip
 
     [m3u]
-    playlists_dir = /app/mopidy/media/{{ .Values.config.playlistsDir }}
+    playlists_dir = /media/{{ .Values.config.playlistsDir }}
 
     [mpd]
     hostname = 0.0.0.0

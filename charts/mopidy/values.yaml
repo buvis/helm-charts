@@ -100,8 +100,10 @@ tolerations: []
 affinity: {}
 
 config:
-  # customConfig: | (paste your mopidy.conf below)
-  # snapserverIP: 127.0.0.1
+  # customConfig: | (replace everything below this line by your mopidy.conf content)
+  # snapserver:
+  #   ip: 127.0.0.1
+  #   port: 4955
   playlistsDir: 000-playlists
   defaultPlaylist: play-on-start
   #scrobbler:
