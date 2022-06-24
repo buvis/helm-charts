@@ -81,10 +81,10 @@ data:
     [scrobbler]
     enabled = {{ if .Values.config.scrobbler.username }}true{{ else }}false{{ end }}
     {{- if .Values.config.scrobbler.username }}
-    username = {{- .Values.config.scrobbler.username }}
+    username = {{ .Values.config.scrobbler.username }}
     {{- end }}
     {{- if .Values.config.scrobbler.username }}
-    password = {{- .Values.config.scrobbler.password }}
+    password = {{ .Values.config.scrobbler.password }}
     {{- end }}
 
     [tunein]
@@ -99,6 +99,6 @@ data:
 
     [defaultplaylist]
     enabled = {{ if .Values.config.defaultPlaylist }}true{{ else }}false{{ end }}
-    defaultplaylist_name = {{- .Values.config.defaultPlaylist }}
+    defaultplaylist_name = {{ .Values.config.defaultPlaylist }}
     autoplay = true
     {{- end }}
