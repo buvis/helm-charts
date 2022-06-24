@@ -178,4 +178,19 @@ entries:
     urls:
     - https://github.com/buvis/helm-charts/releases/download/mopidy-0.0.1/mopidy-0.0.1.tgz
     version: 0.0.1
-generated: "2022-06-24T16:05:08.222238712Z"
+  snapserver:
+  - apiVersion: v2
+    appVersion: v0.26.0
+    created: "2022-06-24T19:19:09.107708298Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.4.2
+    description: Deploy Snapcast server
+    digest: 2c3a6f3d542597cd79668dad8a38478fade7e9ccb6f4a4e254e93bb626ec6420
+    name: snapserver
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/snapserver-0.0.1/snapserver-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-06-24T19:19:09.107795598Z"
