@@ -1,0 +1,15 @@
+{{- include "common.values.setup" . -}}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "common.names.fullname" . }}-config
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+data:
+  snapserver.conf: |
+  [http]
+  doc_root = /usr/share/snapserver/snapweb/
+
+  [stream]
+  source = tcp://0.0.0.0:4955?name=mopidy
