@@ -36,15 +36,9 @@ securityContext:
 # @default -- See values.yaml
 service:
   main:
-    enabled: false
-    type: ClusterIP
-    externalTrafficPolicy: Local
     ports:
-      http-tcp:
-        enabled: true
-        port: 80
-        protocol: TCP
-        targetPort: 6680
+      http:
+        port: 6680
   zeroconf:
     enabled: false
     type: ClusterIP
