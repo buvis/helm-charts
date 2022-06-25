@@ -32,7 +32,10 @@ securityContext:
 service:
   main:
     ports:
+      http:
+        enabled: false
       audio:
+        enabled: true
         port: 1704
   control:
     enabled: true
