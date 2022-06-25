@@ -32,18 +32,18 @@ securityContext:
 service:
   main:
     ports:
-      http:
-        port: 1705
-  audio:
+      audio:
+        port: 1704
+  control:
     enabled: true
     type: ClusterIP
     externalTrafficPolicy: Local
     ports:
-      audio:
+      control:
         enabled: true
-        port: 1704
+        port: 1705
         protocol: TCP
-        targetPort: 1704
+        targetPort: 1705
   web:
     enabled: true
     type: ClusterIP
