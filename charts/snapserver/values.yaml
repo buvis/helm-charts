@@ -33,8 +33,7 @@ service:
   main:
     ports:
       http:
-        port: 80
-        targetPort: 1780
+        port: 1780
   audio:
     enabled: true
     type: ClusterIP
