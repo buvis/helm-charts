@@ -13,3 +13,6 @@ data:
 
     [stream]
     source = tcp://0.0.0.0:4955?name=mopidy
+
+    [logging]
+    filter = *:warning
