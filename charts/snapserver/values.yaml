@@ -33,6 +33,7 @@ service:
   main:
     ports:
       http:
+        enabled: true
         port: 1780
   audio:
     enabled: true
