@@ -25,7 +25,7 @@ data:
     [audio]
     mixer = software
     output = audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! wavenc ! tcpclientsink host={{ .Values.config.snapserver.ip }} port={{ .Values.config.snapserver.port }}
-    mixer_volume = 80
+    mixer_volume = 45
 
     [file]
     enabled = true
@@ -75,8 +75,9 @@ data:
     enabled = true
     hostname = 0.0.0.0
     port = 6680
-    static_dir =
+    default_app = iris
     zeroconf = $hostname
+    csrf_protection = false
 
     [scrobbler]
     enabled = {{ if .Values.config.scrobbler.username }}true{{ else }}false{{ end }}
