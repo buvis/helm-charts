@@ -2,11 +2,11 @@
 apiVersion: v2
 description: A KaH-common powered chart template
 name: kah-common
-version: 4.4.2
+version: 4.5.2
 maintainers:
 - name: Tomáš Bouška
   email: tomas@buvis.net
 dependencies:
 - name: common
   repository: https://library-charts.k8s-at-home.com
-  version: 4.4.2
+  version: 4.5.2
