@@ -6,12 +6,13 @@ replicaCount: 1
 
 image:
   repository: buvis/mkdocs-git-sync
+  tag: "v0.1.7"
   pullPolicy: Always
 
 image_nginx:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: Always
-  tag: "1.21.4"
+  tag: "1.23.2"
 
 imagePullSecrets: []
 nameOverride: ""

@@ -42,7 +42,7 @@ helm install mkdocs buvis/mopidy -f values.yaml
 
 Use this chart to deploy [Snapcast server](https://github.com/badaix/snapcast).
 
-`` bash
+``` bash
 helm repo add buvis https://charts.buvis.net
 helm repo update
 helm show values buvis/snapserver > values.yaml
