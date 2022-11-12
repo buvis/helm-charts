@@ -4,8 +4,8 @@ name: mopidy
 description: Deploy Mopidy music server.
 
 type: application
-version: 0.4.3
-appVersion: "v3.64.1"
+version: 0.5.0
+appVersion: "v3.65.0"
 
 dependencies:
 - name: common
