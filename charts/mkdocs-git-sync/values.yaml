@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: buvis/mkdocs-git-sync
-  tag: "v0.1.7"
+  tag: "v0.1.8"
   pullPolicy: Always
 
 image_nginx:
