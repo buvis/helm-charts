@@ -33,6 +33,17 @@ entries:
     version: 4.1.0
   mkdocs-git-sync:
   - apiVersion: v2
+    appVersion: v0.1.8
+    created: "2022-11-25T16:53:26.289489806Z"
+    description: Build MkDocs site in Docker and have it automatically synced from
+      the source git repository.
+    digest: a3336d94fdcda9228f08eb8355d0ca22243f6cee48f8c84864d9f3cef437d910
+    name: mkdocs-git-sync
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/mkdocs-git-sync-0.1.8/mkdocs-git-sync-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
     appVersion: v0.1.7
     created: "2022-11-09T17:23:41.113393949Z"
     description: Build MkDocs site in Docker and have it automatically synced from
@@ -77,6 +88,20 @@ entries:
     - https://github.com/buvis-net/helm-charts/releases/download/mkdocs-git-sync-0.1.0/mkdocs-git-sync-0.1.0.tgz
     version: 0.1.0
   mopidy:
+  - apiVersion: v2
+    appVersion: v3.65.0
+    created: "2022-11-25T16:53:26.505301427Z"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.5.2
+    description: Deploy Mopidy music server.
+    digest: d3ce993810bb23d352fd6ffb356f145aa3234c991958e3f23b825a43c9553b39
+    name: mopidy
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/mopidy-0.5.1/mopidy-0.5.1.tgz
+    version: 0.5.1
   - apiVersion: v2
     appVersion: v3.65.0
     created: "2022-11-12T11:55:36.032448059Z"
@@ -386,4 +411,4 @@ entries:
     urls:
     - https://github.com/buvis/helm-charts/releases/download/snapserver-0.0.1/snapserver-0.0.1.tgz
     version: 0.0.1
-generated: "2022-11-12T11:55:36.03251176Z"
+generated: "2022-11-25T16:53:26.505443629Z"
