@@ -413,6 +413,15 @@ entries:
     version: 0.0.1
   supabase:
   - apiVersion: v2
+    created: "2022-12-28T15:17:51.709271571Z"
+    description: The open source Firebase alternative.
+    digest: 08d5cb4520f86b78642ecb80914813a4e529b1c92ceeed66e3c33c7bbeb735e3
+    name: supabase
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/supabase-0.1.1/supabase-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     created: "2022-12-28T13:35:42.298867455Z"
     description: The open source Firebase alternative.
     digest: 185e1f6083c8a4d32e794b8bb320b73df35626592aab238339e050f2268cd2b8
@@ -430,4 +439,4 @@ entries:
     urls:
     - https://github.com/buvis/helm-charts/releases/download/supabase-0.0.1/supabase-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-28T13:35:42.298930358Z"
+generated: "2022-12-28T15:17:51.709352272Z"
