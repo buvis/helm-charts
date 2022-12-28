@@ -42,6 +42,8 @@ spec:
                   name: {{ include "supabase.auth.fullname" $ }}
                   key: {{ $key }}
             {{- end }}
+            - name: DB_HOST
+              value: {{ .supabase.db_host }}
             - name: DB_USER
               valueFrom:
                 secretKeyRef:

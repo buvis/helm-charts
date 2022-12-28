@@ -60,3 +60,26 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create database host
+*/}}
+{{- define "supabase.db_host_internal" -}}
+{{- if .Values.db.fullnameOverride }}
+{{- .Values.db.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $name := default (print .Chart.Name "-db") .Values.db.nameOverride }}
+{{- if contains $name .Release.Name }}
+{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- define "supabase.db_host" -}}
+{{- if .Values.dbHost }}
+{{ .Values.dbHost }}
+{{- else }}
+{{- printf "%s.%s.%s" .supabase.db_host_internal .Release.Namespace "svc.cluster.local" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
