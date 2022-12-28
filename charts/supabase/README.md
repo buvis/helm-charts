@@ -85,9 +85,6 @@ kubectl -n default delete secret demo-supabase-smtp
 
 You should consider to adjust the following values in `values.yaml`:
 
-- `JWT_SECRET_NAME`: Reference to Kubernetes secret with JWT secret data `secret`, `anonKey` & `serviceKey`
-- `SMTP_SECRET_NAME`: Reference to Kubernetes secret with SMTP credentials `username` & `password`
-- `DB_SECRET_NAME`: Reference to Kubernetes secret with Postgres credentials `username` & `password`
 - `RELEASE_NAME`: Name used for helm release
 - `NAMESPACE`: Namespace used for the helm release
 - `API.EXAMPLE.COM` URL to Kong API
@@ -100,62 +97,26 @@ If you want to use mail, consider to adjust the following values in `values.yaml
 - `SMTP_PORT`
 - `SMTP_SENDER_NAME`
 
-### JWT Secret
+### Secrets
 
-We encourage you to use your own JWT keys by generating a new Kubernetes secret and reference it in `values.yaml`:
+You can use a Kubernetes secret to store JWT keys, SMTP and database credentials. Then reference the name of the secret in `values.yaml` in `secretName` key.
 
-```yaml
-  jwt:
-    secretName: "JWT_SECRET_NAME"
-```
 
 The secret can be created with kubectl via command-line:
 
 ```bash
-kubectl -n NAMESPACE create secret generic JWT_SECRET_NAME \
-  --from-literal=secret='JWT_TOKEN_AT_LEAST_32_CHARACTERS_LONG' \
-  --from-literal=anonKey='JWT_ANON_KEY' \
-  --from-literal=serviceKey='JWT_SERVICE_KEY'
+kubectl -n NAMESPACE create secret generic RELEASE_NAME \
+  --from-literal=jwtSecret='JWT_TOKEN_AT_LEAST_32_CHARACTERS_LONG' \
+  --from-literal=jwtAnonKey='JWT_ANON_KEY' \
+  --from-literal=jwtServiceKey='JWT_SERVICE_KEY \'
+  --from-literal=smtpUsername='SMTP_USER' \
+  --from-literal=smtpPassword='SMTP_PASSWORD \\'
+  --from-literal=dbUsername='DB_USER' \
+  --from-literal=dbPassword='PW_USER'
 ```
 
 > 32 characters long secret can be generated with `openssl rand 64 | base64`
 > You can use the [JWT Tool](https://supabase.com/docs/guides/hosting/overview#api-keys) to generate anon and service keys.
-
-### SMTP Secret
-
-Connection credentials for the SMTP mail server will also be provided via Kubernetes secret referenced in `values.yaml`:
-
-```yaml
-  smtp:
-    secretName: "SMTP_SECRET_NAME"
-```
-
-The secret can be created with kubectl via command-line:
-
-```bash
-kubectl -n NAMESPACE create secret generic SMTP_SECRET_NAME \
-  --from-literal=username='SMTP_USER' \
-  --from-literal=password='SMTP_PASSWORD'
-```
-
-### DB Secret
-
-DB credentials will also be stored in a Kubernetes secret and referenced in `values.yaml`:
-
-```yaml
-  db:
-    secretName: "DB_SECRET_NAME"
-```
-
-The secret can be created with kubectl via command-line:
-
-```bash
-kubectl -n NAMESPACE create secret generic DB_SECRET_NAME \
-  --from-literal=username='DB_USER' \
-  --from-literal=password='PW_USER'
-```
-
-> If you depend on database providers like [StackGres](https://stackgres.io/) or [Postgres Operator](https://github.com/zalando/postgres-operator) you only need to reference the already existing secret in `values.yaml`.
 
 ## How to use in Production
 

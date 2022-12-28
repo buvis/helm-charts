@@ -45,13 +45,13 @@ spec:
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.db.secretName }}
-                  key: username
+                  name: {{ .Values.secretName }}
+                  key: dbUsername
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.db.secretName }}
-                  key: password
+                  name: {{ .Values.secretName }}
+                  key: dbPassword
             - name: PG_META_DB_HOST
               value: $(DB_HOST)
             - name: PG_META_DB_PORT

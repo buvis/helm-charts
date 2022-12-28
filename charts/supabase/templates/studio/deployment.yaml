@@ -45,13 +45,13 @@ spec:
             - name: SUPABASE_ANON_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.jwt.secretName }}
-                  key: anonKey
+                  name: {{ .Values.secretName }}
+                  key: jwtAnonKey
             - name: SUPABASE_SERVICE_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.jwt.secretName }}
-                  key: serviceKey
+                  name: {{ .Values.secretName }}
+                  key: jwtServiceKey
           ports:
             - name: http
               containerPort: 3000

@@ -8,27 +8,23 @@
 # |-- 7. Storage
 # |-- 8. Kong
 
-# jwt will be used to reference secret in multiple services:
-# Anon & Service key: Studio, Storage, Kong
-# JWT Secret: Auth, Rest, Realtime, Storage
-jwt:
-  secretName: "JWT_SECRET_NAME"
+# secretName refers to Secret holding the following keys:
+# - jwtSecret
+# - jwtAnonKey
+# - jwtServiceKey
+# - dbUsername
+# - dbPassword
+# - smtpUsername
+# - smtpPassword
+secretName: "RELEASE_NAME"
 
-# smtp will be used to reference secret including smtp credentials
-smtp:
-  secretName: "SMTP_SECRET_NAME"
-
-# Optional: Postgres Database
-# A standalone Postgres database configured to work with Supabase services. 
-# You can spin up any other Postgres database container if required. 
-# If so, make sure to adjust DB_HOST accordingly to point to the right database service.
+# Postgres Database
 db:
-  enabled: false # Disable the database provisioning
-  secretName: "DB_SECRET_NAME" # Still NEEDS TO BE DEFINED, even if database provisioning is disabled
+  enabled: true  # Set to false to disable the database provisioning, then adjust DB_HOST accordingly to external database
   image:
     repository: supabase/postgres
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: 14.1.0.89
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -113,7 +109,7 @@ studio:
   image:
     repository: supabase/studio
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: 20221214-4eecc99
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -200,7 +196,7 @@ auth:
   image:
     repository: supabase/gotrue
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: v2.31.0
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -300,7 +296,7 @@ rest:
   image:
     repository: postgrest/postgrest
     pullPolicy: IfNotPresent
-    tag: "latest" 
+    tag: v9.0.1.20220717
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
@@ -381,10 +377,10 @@ realtime:
   image:
     repository: supabase/realtime
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: v0.25.1
   imagePullSecrets: []
   nameOverride: ""
-  fullnameOverride: "" 
+  fullnameOverride: ""
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
@@ -464,9 +460,9 @@ meta:
   image:
     repository: supabase/postgres-meta
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: v0.52.1
   imagePullSecrets: []
-  replicaCount: 1  
+  replicaCount: 1
   nameOverride: ""
   fullnameOverride: ""
   serviceAccount:
@@ -536,7 +532,7 @@ meta:
     # targetMemoryUtilizationPercentage: 80
   nodeSelector: {}
   tolerations: []
-  affinity: {}    
+  affinity: {}
 
 # Storage Service
 storage:
@@ -544,7 +540,7 @@ storage:
   image:
     repository: supabase/storage-api
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: v0.26.1
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -639,7 +635,7 @@ kong:
   image:
     repository: kong
     pullPolicy: IfNotPresent
-    tag: "latest"
+    tag: 2.8.1
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""

@@ -47,18 +47,18 @@ spec:
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.db.secretName }}
-                  key: username
+                  name: {{ .Values.secretName }}
+                  key: dbUsername
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.db.secretName }}
-                  key: password
+                  name: {{ .Values.secretName }}
+                  key: dbPassword
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.jwt.secretName }}
-                  key: secret
+                  name: {{ .Values.secretName }}
+                  key: jwtSecret
           ports:
             - name: http
               containerPort: 4000

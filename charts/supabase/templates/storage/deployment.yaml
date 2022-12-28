@@ -46,30 +46,30 @@ spec:
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.db.secretName }}
-                  key: username
+                  name: {{ .Values.secretName }}
+                  key: dbUsername
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.db.secretName }}
-                  key: password
+                  name: {{ .Values.secretName }}
+                  key: dbPassword
             - name: DATABASE_URL
               value: $(DB_DRIVER)://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?search_path=auth&sslmode=$(DB_SSL)
             - name: PGRST_JWT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.jwt.secretName }}
-                  key: secret
+                  name: {{ .Values.secretName }}
+                  key: jwtSecret
             - name: ANON_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.jwt.secretName }}
-                  key: anonKey
+                  name: {{ .Values.secretName }}
+                  key: jwtAnonKey
             - name: SERVICE_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.jwt.secretName }}
-                  key: serviceKey
+                  name: {{ .Values.secretName }}
+                  key: jwtServiceKey
           ports:
             - name: http
               containerPort: 5000
