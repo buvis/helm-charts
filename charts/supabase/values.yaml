@@ -17,10 +17,11 @@
 # - smtpUsername
 # - smtpPassword
 secretName: "RELEASE_NAME"
+#dbHost: external_database.your_domain.com  # you can supply externally provisioned database here
 
 # Postgres Database
 db:
-  enabled: true  # Set to false to disable the database provisioning, then adjust DB_HOST accordingly to external database
+  enabled: true  # Set to false to disable the database provisioning, then adjust .Values.dbHost accordingly to point to external database
   image:
     repository: supabase/postgres
     pullPolicy: IfNotPresent
@@ -223,7 +224,7 @@ auth:
     type: ClusterIP
     port: 9999
   environment:
-    DB_HOST: DATABASE.NAMESPACE.svc.cluster.local
+    # DB_HOST: DATABASE.NAMESPACE.svc.cluster.local  # you shouldn't need this, because helper determines the correct host either to internal or .Values.dbHost
     DB_PORT: "5432"
     DB_DRIVER: postgres
     DB_NAME: postgres
