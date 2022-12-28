@@ -25,7 +25,7 @@ db:
   image:
     repository: supabase/postgres
     pullPolicy: IfNotPresent
-    tag: 14.1.0.89
+    tag: 14.1.0.105
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -292,7 +292,7 @@ rest:
   image:
     repository: postgrest/postgrest
     pullPolicy: IfNotPresent
-    tag: v9.0.1.20220717
+    tag: v9.0.1.20220802
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
@@ -536,7 +536,7 @@ storage:
   image:
     repository: supabase/storage-api
     pullPolicy: IfNotPresent
-    tag: v0.26.1
+    tag: v0.26.2
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -631,7 +631,7 @@ kong:
   image:
     repository: kong
     pullPolicy: IfNotPresent
-    tag: 2.8.1
+    tag: 2.8.3
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
