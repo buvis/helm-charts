@@ -43,13 +43,13 @@ spec:
                   key: {{ $key }}
             {{- end }}
             - name: SUPABASE_URL
-              value: {{ .Values.studio.apiUrl }}
+              value: {{ .Values.apiUrl }}
             - name: SUPABASE_REST_URL
-              value: {{ .Values.studio.apiUrl }}/rest/v1/
+              value: {{ .Values.apiUrl }}/rest/v1/
             - name: SUPABASE_PUBLIC_URL
-              value: {{ .Values.studio.apiUrl }}
+              value: {{ .Values.apiUrl }}
             - name: PUBLIC_REST_URL
-              value: {{ .Values.studio.apiUrl }}/rest/v1/
+              value: {{ .Values.apiUrl }}/rest/v1/
             - name: DEFAULT_ORGANIZATION_NAME
               value: {{ .Values.studio.organizationName }}
             - name: DEFAULT_PROJECT_NAME

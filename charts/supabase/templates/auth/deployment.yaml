@@ -42,6 +42,16 @@ spec:
                   name: {{ include "supabase.auth.fullname" $ }}
                   key: {{ $key }}
             {{- end }}
+            - name: GOTRUE_SITE_URL
+              values: {{ .Values.studioUrl }}
+            - name: GOTRUE_MAILER_URLPATHS_INVITE
+              value: {{ .Values.apiUrl }}/auth/v1/verify
+            - name: GOTRUE_MAILER_URLPATHS_CONFIRMATION
+              value: {{ .Values.apiUrl }}/auth/v1/verify
+            - name: GOTRUE_MAILER_URLPATHS_RECOVERY
+              value: {{ .Values.apiUrl }}/auth/v1/verify
+            - name: GOTRUE_MAILER_URLPATHS_EMAIL_CHANGE
+              value: {{ .Values.apiUrl }}/auth/v1/verify
             - name: DB_HOST
               value: {{ include "supabase.db_host" $ }}
             - name: DB_USER
