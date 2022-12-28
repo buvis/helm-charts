@@ -13,6 +13,7 @@ buvis` to see the charts.
 ## Charts
 
 ### mkdocs-git-sync
+
 Use this chart to deploy MkDocs site generated from a git repo. When source repository changes, the site will be rebuilt.
 
 ``` bash
@@ -21,4 +22,40 @@ helm repo update
 helm show values buvis/mkdocs-git-sync > values.yaml
 vim values.yaml  # make changes to config section
 helm install mkdocs buvis/mkdocs-git-sync -f values.yaml
+```
+
+### mopidy
+
+Use this chart to deploy [Mopidy music server](https://mopidy.com/).
+
+``` bash
+helm repo add buvis https://charts.buvis.net
+helm repo update
+helm show values buvis/mopidy > values.yaml
+vim values.yaml  # make changes to config section
+helm install mopidy buvis/mopidy -f values.yaml
+```
+
+### snapserver
+
+Use this chart to deploy [Snapcast server](https://github.com/badaix/snapcast).
+
+``` bash
+helm repo add buvis https://charts.buvis.net
+helm repo update
+helm show values buvis/snapserver > values.yaml
+vim values.yaml  # make changes to config section
+helm install snapserver buvis/snapserver -f values.yaml
+```
+
+### supabase
+
+Use this chart to deploy [Supabase](https://github.com/supabase/supabase).
+
+``` bash
+helm repo add buvis https://charts.buvis.net
+helm repo update
+helm show values buvis/supabase > values.yaml
+vim values.yaml  # make changes to config section
+helm install supabase buvis/supabase -f values.yaml
 ```
