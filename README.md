@@ -35,7 +35,7 @@ helm repo add buvis https://charts.buvis.net
 helm repo update
 helm show values buvis/mopidy > values.yaml
 vim values.yaml  # make changes to config section
-helm install mkdocs buvis/mopidy -f values.yaml
+helm install mopidy buvis/mopidy -f values.yaml
 ```
 
 ### snapserver
@@ -47,5 +47,17 @@ helm repo add buvis https://charts.buvis.net
 helm repo update
 helm show values buvis/snapserver > values.yaml
 vim values.yaml  # make changes to config section
-helm install mkdocs buvis/snapserver -f values.yaml
+helm install snapserver buvis/snapserver -f values.yaml
+```
+
+### supabase
+
+Use this chart to deploy [Supabase](https://github.com/supabase/supabase).
+
+``` bash
+helm repo add buvis https://charts.buvis.net
+helm repo update
+helm show values buvis/supabase > values.yaml
+vim values.yaml  # make changes to config section
+helm install supabase buvis/supabase -f values.yaml
 ```
