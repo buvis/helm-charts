@@ -411,4 +411,14 @@ entries:
     urls:
     - https://github.com/buvis/helm-charts/releases/download/snapserver-0.0.1/snapserver-0.0.1.tgz
     version: 0.0.1
-generated: "2022-11-25T16:53:26.505443629Z"
+  supabase:
+  - apiVersion: v2
+    created: "2022-12-28T10:08:13.554974312Z"
+    description: The open source Firebase alternative.
+    digest: 5a344f96fc4ec845d4c6e0d48d76bdad274f2c1f7e5cf3c1ce9ee58865586823
+    name: supabase
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/supabase-0.0.1/supabase-0.0.1.tgz
+    version: 0.0.1
+generated: "2022-12-28T10:08:13.555038213Z"
