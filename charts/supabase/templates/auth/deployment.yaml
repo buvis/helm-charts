@@ -43,7 +43,7 @@ spec:
                   key: {{ $key }}
             {{- end }}
             - name: DB_HOST
-              value: {{ .supabase.db_host }}
+              value: {{ include "supabase.db_host" $ }}
             - name: DB_USER
               valueFrom:
                 secretKeyRef:

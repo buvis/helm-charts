@@ -80,6 +80,6 @@ Create database host
 {{- if .Values.dbHost }}
 {{ .Values.dbHost }}
 {{- else }}
-{{- printf "%s.%s.%s" .supabase.db_host_internal .Release.Namespace "svc.cluster.local" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s.%s.%s" (include "supabase.db_host_internal" $) .Release.Namespace "svc.cluster.local" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
