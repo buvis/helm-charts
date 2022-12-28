@@ -111,6 +111,9 @@ studio:
     repository: supabase/studio
     pullPolicy: IfNotPresent
     tag: 20221214-4eecc99
+  apiURL: "https://API.EXAMPLE.COM"
+  organizationName: Default Organization
+  projectName: Default Project
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -136,10 +139,6 @@ studio:
   service:
     type: ClusterIP
     port: 3000
-  environment:
-    SUPABASE_URL: https://API.EXAMPLE.COM
-    SUPABASE_REST_URL: https://API.EXAMPLE.COM/rest/v1/
-    STUDIO_PG_META_URL: http://RELEASE_NAME-kong.NAMESPACE.svc.cluster.local:8000/pg
   ingress:
     enabled: true
     className: "nginx"

@@ -101,3 +101,21 @@ Create postgrest url
 {{- define "supabase.postgrest_url" -}}
 {{- printf "%s.%s.%s" (include "supabase.postgrest_url_base" $) .Release.Namespace "svc.cluster.local" | trunc 63 | trimSuffix "-" }}
 {{- end }}
+{{/*
+Create meta url
+*/}}
+{{- define "supabase.meta_url_base" -}}
+{{- if .Values.db.fullnameOverride }}
+{{- .Values.db.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $name := default (print .Chart.Name "-kong") .Values.db.nameOverride }}
+{{- if contains $name .Release.Name }}
+{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- define "supabase.meta_url" -}}
+{{- printf "%s.%s.%s" (include "supabase.meta_url_base" $) .Release.Namespace "svc.cluster.local:8000/pg" | trunc 63 | trimSuffix "-" }}
+{{- end }}
