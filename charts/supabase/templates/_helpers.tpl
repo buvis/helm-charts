@@ -99,7 +99,7 @@ Create postgrest url
 {{- end }}
 {{- end }}
 {{- define "supabase.postgrest_url" -}}
-{{- printf "%s.%s.%s" (include "supabase.postgrest_url_base" $) .Release.Namespace "svc.cluster.local" | trimSuffix "-" }}
+{{- printf "http://%s.%s.%s" (include "supabase.postgrest_url_base" $) .Release.Namespace "svc.cluster.local" | trimSuffix "-" }}
 {{- end }}
 {{/*
 Create meta url
