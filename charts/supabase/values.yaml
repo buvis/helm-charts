@@ -223,7 +223,6 @@ auth:
     type: ClusterIP
     port: 9999
   environment:
-    # DB_HOST: DATABASE.NAMESPACE.svc.cluster.local  # you shouldn't need this, because helper determines the correct host either to internal or .Values.dbHost
     DB_PORT: "5432"
     DB_DRIVER: postgres
     DB_NAME: postgres
@@ -318,7 +317,6 @@ rest:
     type: ClusterIP
     port: 3000
   environment:
-    DB_HOST: DATABASE.NAMESPACE.svc.cluster.local
     DB_PORT: "5432"
     DB_DRIVER: postgres
     DB_NAME: postgres
@@ -399,7 +397,6 @@ realtime:
     type: ClusterIP
     port: 4000
   environment:
-    DB_HOST: DATABASE.NAMESPACE.svc.cluster.local
     DB_PORT: "5432"
     DB_NAME: postgres
     DB_SSL: "false"
@@ -483,7 +480,6 @@ meta:
     type: ClusterIP
     port: 8080
   environment:
-    DB_HOST: DATABASE.NAMESPACE.svc.cluster.local
     DB_PORT: "5432"
     DB_DRIVER: postgres
     DB_NAME: postgres
@@ -563,12 +559,10 @@ storage:
     type: ClusterIP
     port: 5000
   environment:
-    DB_HOST: DATABASE.NAMESPACE.svc.cluster.local
     DB_PORT: "5432"
     DB_DRIVER: postgres
     DB_NAME: postgres
     DB_SSL: disable # disable, allow, prefer, require, verify-ca, verify-full
-    POSTGREST_URL: http://RELEASE_NAME-rest.NAMESPACE.svc.cluster.local:3000
     PGOPTIONS: -c search_path=storage,public
     FILE_SIZE_LIMIT: '52428800'
     STORAGE_BACKEND: file
