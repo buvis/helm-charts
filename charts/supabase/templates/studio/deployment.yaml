@@ -42,6 +42,8 @@ spec:
                   name: {{ include "supabase.studio.fullname" $ }}
                   key: {{ $key }}
             {{- end }}
+            - name: STUDIO_PG_META_URL
+              value: {{ include "supabase.meta_url"  $ }}
             - name: SUPABASE_URL
               value: {{ include "supabase.api_internal_url" $ }}
             - name: SUPABASE_REST_URL
