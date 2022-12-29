@@ -119,3 +119,9 @@ Create meta url
 {{- define "supabase.meta_url" -}}
 {{- printf "%s.%s.%s" (include "supabase.meta_url_base" $) .Release.Namespace "svc.cluster.local:8000/pg" | trunc 63 | trimSuffix "-" }}
 {{- end }}
+{{/*
+Create internal kong api url
+*/}}
+{{- define "supabase.api_internal_url" -}}
+{{- printf "%s.%s.%s" (include "supabase.meta_url_base" $) .Release.Namespace "svc.cluster.local:8000" | trunc 63 | trimSuffix "-" }}
+{{- end }}

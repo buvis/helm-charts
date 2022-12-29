@@ -43,7 +43,7 @@ spec:
                   key: {{ $key }}
             {{- end }}
             - name: SUPABASE_URL
-              value: {{ .Values.apiUrl }}
+              value: {{ include "supabase.api_internal_url" $ }}
             - name: SUPABASE_REST_URL
               value: {{ .Values.apiUrl }}/rest/v1/
             - name: SUPABASE_PUBLIC_URL
