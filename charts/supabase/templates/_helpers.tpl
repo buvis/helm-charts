@@ -80,7 +80,7 @@ Create database host
 {{- if .Values.dbHost }}
 {{ .Values.dbHost }}
 {{- else }}
-{{- printf "%s.%s.%s" (include "supabase.db_host_internal" $) .Release.Namespace "svc.cluster.local" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s.%s.%s" (include "supabase.db_host_internal" $) .Release.Namespace "svc.cluster.local" | trimSuffix "-" }}
 {{- end }}
 {{- end }}
 {{/*
@@ -99,7 +99,7 @@ Create postgrest url
 {{- end }}
 {{- end }}
 {{- define "supabase.postgrest_url" -}}
-{{- printf "%s.%s.%s" (include "supabase.postgrest_url_base" $) .Release.Namespace "svc.cluster.local" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s.%s.%s" (include "supabase.postgrest_url_base" $) .Release.Namespace "svc.cluster.local" | trimSuffix "-" }}
 {{- end }}
 {{/*
 Create meta url
@@ -117,11 +117,11 @@ Create meta url
 {{- end }}
 {{- end }}
 {{- define "supabase.meta_url" -}}
-{{- printf "http://%s.%s.%s" (include "supabase.meta_url_base" $) .Release.Namespace "svc.cluster.local:8000/pg" | trunc 63 | trimSuffix "-" }}
+{{- printf "http://%s.%s.%s" (include "supabase.meta_url_base" $) .Release.Namespace "svc.cluster.local:8000/pg" | trimSuffix "-" }}
 {{- end }}
 {{/*
 Create internal kong api url
 */}}
 {{- define "supabase.api_internal_url" -}}
-{{- printf "%s.%s.%s" (include "supabase.meta_url_base" $) .Release.Namespace "svc.cluster.local:8000" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s.%s.%s" (include "supabase.meta_url_base" $) .Release.Namespace "svc.cluster.local:8000" | trimSuffix "-" }}
 {{- end }}
