@@ -46,9 +46,13 @@ spec:
               value: {{ include "supabase.meta_url"  $ }}
             - name: SUPABASE_URL
               value: {{ include "supabase.api_internal_url" $ }}
+            - name: NEXT_PUBLIC_SUPABASE_URL
+              value: {{ include "supabase.api_internal_url" $ }}
             - name: SUPABASE_REST_URL
               value: {{ .Values.apiUrl }}/rest/v1/
             - name: SUPABASE_PUBLIC_URL
+              value: {{ .Values.apiUrl }}
+            - name: NEXT_PUBLIC_SUPABASE_PUBLIC_URL
               value: {{ .Values.apiUrl }}
             - name: PUBLIC_REST_URL
               value: {{ .Values.apiUrl }}/rest/v1/
