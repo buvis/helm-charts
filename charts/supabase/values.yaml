@@ -25,7 +25,7 @@ db:
   image:
     repository: supabase/postgres
     pullPolicy: IfNotPresent
-    tag: 15.1.0.18
+    tag: 15.1.0.53
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -110,7 +110,7 @@ studio:
   image:
     repository: supabase/studio
     pullPolicy: IfNotPresent
-    tag: 20221222-6b98c06
+    tag: 20230308-c20a9b2
   apiURL: "https://API.EXAMPLE.COM"
   organizationName: Default Organization
   projectName: Default Project
@@ -196,7 +196,7 @@ auth:
   image:
     repository: supabase/gotrue
     pullPolicy: IfNotPresent
-    tag: v2.40.1
+    tag: v2.52.1
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -291,7 +291,7 @@ rest:
   image:
     repository: postgrest/postgrest
     pullPolicy: IfNotPresent
-    tag: v10.1.1.20221215
+    tag: v10.2.0.20230209
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
@@ -371,7 +371,7 @@ realtime:
   image:
     repository: supabase/realtime
     pullPolicy: IfNotPresent
-    tag: v1.0.0
+    tag: v2.6.0
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
@@ -453,7 +453,7 @@ meta:
   image:
     repository: supabase/postgres-meta
     pullPolicy: IfNotPresent
-    tag: v0.55.2
+    tag: v0.60.7
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -532,7 +532,7 @@ storage:
   image:
     repository: supabase/storage-api
     pullPolicy: IfNotPresent
-    tag: v0.26.2
+    tag: v0.30.0
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
