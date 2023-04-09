@@ -291,7 +291,7 @@ rest:
   image:
     repository: postgrest/postgrest
     pullPolicy: IfNotPresent
-    tag: v10.2.0.20230209
+    tag: v10.2.0.20230407
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
