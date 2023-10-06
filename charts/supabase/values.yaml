@@ -625,7 +625,7 @@ kong:
   image:
     repository: kong
     pullPolicy: IfNotPresent
-    tag: 3.4.0
+    tag: 3.4.1
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
