@@ -196,7 +196,7 @@ auth:
   image:
     repository: supabase/gotrue
     pullPolicy: IfNotPresent
-    tag: v2.116.0@sha256:522ca9ea877b61968a8ed8cfc13263ca84f20ce8bf5be4bdd40ce20120613d75
+    tag: v2.117.0@sha256:45304449907b8c2013d5e816dbb16e2bc9cf752f9280e2039621c12e6d7d5255
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
