@@ -35,32 +35,14 @@ service:
       http:
         port: 80
         targetPort: 1780
-  audio:
-    enabled: true
-    type: ClusterIP
-    ports:
       audio:
-        enabled: true
         port: 1704
-        protocol: TCP
         targetPort: 1704
-  control:
-    enabled: true
-    type: ClusterIP
-    ports:
       control:
-        enabled: true
         port: 1705
-        protocol: TCP
         targetPort: 1705
-  stream1:
-    enabled: true
-    type: ClusterIP
-    ports:
       stream1:
-        enabled: true
         port: 4955
-        protocol: TCP
         targetPort: 4955
 
 # -- Enable and configure ingress settings for the chart under this key.
