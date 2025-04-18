@@ -33,6 +33,17 @@ entries:
     version: 4.1.0
   mkdocs-git-sync:
   - apiVersion: v2
+    appVersion: v0.1.10
+    created: "2025-04-18T10:20:45.10069982Z"
+    description: Build MkDocs site in Docker and have it automatically synced from
+      the source git repository.
+    digest: 66554c73a259515c625814ce3fd44f00e020e98224eeecc3c29b8f3ce48dcc93
+    name: mkdocs-git-sync
+    type: application
+    urls:
+    - https://github.com/buvis/helm-charts/releases/download/mkdocs-git-sync-0.1.10/mkdocs-git-sync-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
     appVersion: v0.1.8
     created: "2022-11-25T16:53:26.289489806Z"
     description: Build MkDocs site in Docker and have it automatically synced from
@@ -736,4 +747,4 @@ entries:
     urls:
     - https://github.com/buvis/helm-charts/releases/download/supabase-0.0.1/supabase-0.0.1.tgz
     version: 0.0.1
-generated: "2024-10-12T08:43:08.143646287Z"
+generated: "2025-04-18T10:20:45.205087934Z"
