@@ -12,7 +12,7 @@ image:
 image_nginx:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: Always
-  tag: "1.23.2"
+  tag: "1.27.3"
 
 imagePullSecrets: []
 nameOverride: ""

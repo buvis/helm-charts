@@ -72,6 +72,8 @@ spec:
             httpGet:
               path: /
               port: http
+            periodSeconds: 60
+            failureThreshold: 5
           volumeMounts:
             - name: site
               mountPath: /usr/share/nginx/html
