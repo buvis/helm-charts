@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: buvis/mkdocs-git-sync
-  tag: "v0.1.10"
+  tag: "v0.2.0"
   pullPolicy: Always
 
 image_nginx:
@@ -91,11 +91,11 @@ config:
   #docsDir: docs
   #editUri: https://github.com/tbouska/mkdocs-zettelkasten/edit/main/docs
   #updateInterval: 900
+  #logLevel: INFO
   #siteName: MkDocs Zettelkasten
   #siteUrl: https://docs.buvis.net
   #requirements: |
-  #mkdocs-zettelkasten==0.1.10
-  #git+https://github.com/jldiaz/mkdocs-plugin-tags.git#egg=tags-macros-plugin
+  #mkdocs-zettelkasten==0.2.0
   #theme:
   #name: zettelkasten-solarized-light
   #extensions:
@@ -103,7 +103,6 @@ config:
   #- pymdownx.superfences
   #plugins:
   #- search
-  #- tags
   #- zettelkasten
   #nav:
   #- Source: https://github.com/tbouska/mkdocs-zettelkasten
