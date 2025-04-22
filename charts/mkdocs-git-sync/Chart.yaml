@@ -3,5 +3,5 @@ name: mkdocs-git-sync
 description: Build MkDocs site in Docker and have it automatically synced from the source git repository.
 
 type: application
-version: 0.2.0
+version: 0.2.1
 appVersion: "v0.2.0"
