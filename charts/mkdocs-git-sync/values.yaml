@@ -6,13 +6,13 @@ replicaCount: 1
 
 image:
   repository: buvis/mkdocs-git-sync
-  tag: "v0.2.2"
+  tag: "v0.3.0"
   pullPolicy: Always
 
 image_nginx:
   repository: nginxinc/nginx-unprivileged
-  pullPolicy: Always
   tag: "1.27.3"
+  pullPolicy: Always
 
 imagePullSecrets: []
 nameOverride: ""
@@ -95,7 +95,7 @@ config:
   #siteName: MkDocs Zettelkasten
   #siteUrl: https://docs.buvis.net
   #requirements: |
-  #mkdocs-zettelkasten==0.2.0
+  #mkdocs-zettelkasten==0.2.1
   #theme:
   #name: zettelkasten-solarized-light
   #extensions:
