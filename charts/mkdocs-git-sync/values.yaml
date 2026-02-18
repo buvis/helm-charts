@@ -85,24 +85,19 @@ tolerations: []
 affinity: {}
 
 config:
-  #repo: https://github.com/tbouska/mkdocs-zettelkasten.git
-  #credentials: ""
-  #branch: main
-  #docsDir: docs
-  #editUri: https://github.com/tbouska/mkdocs-zettelkasten/edit/main/docs
-  #updateInterval: 900
-  #logLevel: INFO
-  #siteName: MkDocs Zettelkasten
-  #siteUrl: https://docs.buvis.net
-  #requirements: |
-  #mkdocs-zettelkasten==0.2.1
-  #theme:
-  #name: zettelkasten-solarized-light
-  #extensions:
-  #- admonition
-  #- pymdownx.superfences
-  #plugins:
-  #- search
-  #- zettelkasten
-  #nav:
-  #- Source: https://github.com/tbouska/mkdocs-zettelkasten
+  repo: ""
+  credentials: ""
+  branch: main
+  docsDir: docs
+  editUri: ""
+  updateInterval: 900
+  logLevel: INFO
+  siteName: MkDocs
+  siteUrl: ""
+  requirements: ""
+  theme:
+    name: material
+  extensions: []
+  plugins:
+    - search
+  nav: []
