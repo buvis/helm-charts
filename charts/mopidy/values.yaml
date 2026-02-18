@@ -95,12 +95,12 @@ affinity: {}
 
 config:
   # customConfig: | (replace everything below this line by your mopidy.conf content)
-  # snapserver:
-  #   ip: 127.0.0.1
-  #   port: 4955
+  snapserver:
+    ip: 127.0.0.1
+    port: 4955
   playlistsDir: 000-playlists
   defaultPlaylist: play-on-start
-  #scrobbler:
-  #username: LastFMUserName
-  #password: LastFMPassword
+  scrobbler:
+    username: ""
+    password: ""
   enableTidal: false

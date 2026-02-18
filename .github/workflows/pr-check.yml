@@ -12,6 +12,7 @@ jobs:
       - uses: azure/setup-helm@1a275c3b69536ee54be43f2070a358922e12c8d4 # v4
       - run: |
           for chart in charts/*/; do
+            helm dependency build "$chart" 2>/dev/null || true
             helm lint "$chart"
             helm template test "$chart"
           done
