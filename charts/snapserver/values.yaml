@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: saiyato/snapserver
+  repository: ghcr.io/buvis/snapserver
   tag:
   pullPolicy: IfNotPresent
 
