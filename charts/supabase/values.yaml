@@ -532,7 +532,7 @@ storage:
   image:
     repository: supabase/storage-api
     pullPolicy: IfNotPresent
-    tag: v1.57.1@sha256:d85c7d2b86360167776b384d5eaca6064588263ac3ff52724b34bcb5c2223a16
+    tag: v1.57.2@sha256:8628ae00ce107c6821ba9e4663f4b1900af02a41b01fad8a633a656167c225d6
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
