@@ -8,6 +8,9 @@ metadata:
     {{- include "common.labels" . | nindent 4 }}
 data:
   snapserver.conf: |
+    [server]
+    buffer = 2000
+
     [http]
     doc_root = /usr/share/snapserver/snapweb/
 
