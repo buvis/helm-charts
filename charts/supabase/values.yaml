@@ -25,7 +25,7 @@ db:
   image:
     repository: supabase/postgres
     pullPolicy: IfNotPresent
-    tag: 17.6.1.131@sha256:42088c86593e0d4f47b2b2bd3c964cee31a1bbc8e560619fd3e84e5fdd973f6d
+    tag: 17.6.1.132@sha256:e09e93a61ed1560caf4be79c9eb29401875bea74b12aec4657cb08bf34ea3a13
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
