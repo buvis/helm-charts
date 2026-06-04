@@ -371,7 +371,7 @@ realtime:
   image:
     repository: supabase/realtime
     pullPolicy: IfNotPresent
-    tag: v2.103.2@sha256:74c603ce5990088d5ea91b991eb748653df0f809d6ce7f4a0d207c8d1a927e29
+    tag: v2.103.3@sha256:f8af63ef42def3f9318825e331983bd78d161a4b83e8586eb066c7c3333ac8d1
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
@@ -625,7 +625,7 @@ kong:
   image:
     repository: kong
     pullPolicy: IfNotPresent
-    tag: 3.9.1@sha256:76c14b93e989f7f4418039f7f9789ca32564016211c86ac1a18022f4788e7b9c
+    tag: 3.9.2@sha256:bcc27182e9bd2e696aee55ec6cb83f64ec0bfba2143914489dadb44f4f839b19
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
