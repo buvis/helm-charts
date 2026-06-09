@@ -25,7 +25,7 @@ db:
   image:
     repository: supabase/postgres
     pullPolicy: IfNotPresent
-    tag: 17.6.1.133@sha256:24c272aa802f4d14f697725bd14ed75fe2c8f412d1641dc2f912b2b4d1556883
+    tag: 17.6.1.133@sha256:5e6e5608d0eaa77b9d30349d8fb15500a2f478953e76a44a0aff72b3f1b70ccb
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -371,7 +371,7 @@ realtime:
   image:
     repository: supabase/realtime
     pullPolicy: IfNotPresent
-    tag: v2.104.1@sha256:7155ca899bc9b8d01c257171bcd211df36ee0a37ff880d3a39f672d0502cb05c
+    tag: v2.105.0@sha256:859b6deb6cd47958c436ebcaa7f74de7e99552803617142c248501fb0b749c15
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
