@@ -625,7 +625,7 @@ kong:
   image:
     repository: kong
     pullPolicy: IfNotPresent
-    tag: 3.9.4@sha256:8485cabdadb0320212baf1b3f3f47ab293438a61691d198154ccd899d5aabb65
+    tag: 3.9.4@sha256:aa4a4687b1330e427ad0d3b27a0606b833894297c78abf1a212edc9ba73c8620
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
