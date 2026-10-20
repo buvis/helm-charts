@@ -371,7 +371,7 @@ realtime:
   image:
     repository: supabase/realtime
     pullPolicy: IfNotPresent
-    tag: v2.145.5@sha256:d79f85fb363aec93abfe0ae6844b33fdedb70acf42dba5657a62fc323cf64b9c
+    tag: v2.146.0@sha256:89c950426a3ebf0110e50b5d501914dd9b210e6b41739dedd7843aa717e983d7
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
@@ -532,7 +532,7 @@ storage:
   image:
     repository: supabase/storage-api
     pullPolicy: IfNotPresent
-    tag: v1.83.6@sha256:49869d4c7944704aa4d8519141583f504095abf10ed44018bb5471ffc4da16fd
+    tag: v1.84.12@sha256:c1d49a297e719a00efa1a7d090e27abc895708113ef16b1298f9c41d5b8dcdd8
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
