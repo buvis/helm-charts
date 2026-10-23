@@ -371,7 +371,7 @@ realtime:
   image:
     repository: supabase/realtime
     pullPolicy: IfNotPresent
-    tag: v2.147.2@sha256:369a9fab20cd79dbf4d5e79677200e4ab01e6988008df63ce070f8558bc64506
+    tag: v2.147.3@sha256:60633a4163bffba7f51fdae004da4201fe306b3754d5d5a6c2cbf76d530e5f93
   imagePullSecrets: []
   nameOverride: ""
   fullnameOverride: ""
