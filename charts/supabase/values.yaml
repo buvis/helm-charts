@@ -453,7 +453,7 @@ meta:
   image:
     repository: supabase/postgres-meta
     pullPolicy: IfNotPresent
-    tag: v0.100.0@sha256:145325b7e39f8ef4931d6e8cfd3f6f4d655de09d72a2ccc96d9513542c2202bd
+    tag: v0.100.1@sha256:fb86956e979d155e44db9ab3a410177de84030472f71ef9119969c2cd50cc025
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
