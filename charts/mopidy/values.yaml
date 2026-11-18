@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: buvis/mopidy
-  tag: "v3.70.0@sha256:30db3e2a19f8a0a00706973d45195a3b67670798bb207b3f0c4e45e04a6e838b"
+  tag: "v3.70.0@sha256:90a2a0a8f116aa14e524e433bf8f3b6a71022cf1f3f4b31a8c89f6fc74771f23"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
