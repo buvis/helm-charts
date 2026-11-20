@@ -532,7 +532,7 @@ storage:
   image:
     repository: supabase/storage-api
     pullPolicy: IfNotPresent
-    tag: v1.98.2@sha256:b728b7d722f4fe3b9042e35684e8079604ebcdce60240acf555c31ab7a160f3d
+    tag: v1.98.5@sha256:5ea9f4f15d38efe5ae0a07a6f4a649fc7f4a2b2de5dbff4bc8b8fdc0cfc222c2
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
@@ -625,7 +625,7 @@ kong:
   image:
     repository: kong
     pullPolicy: IfNotPresent
-    tag: 3.9.4@sha256:0bf9f0968cbe341a97dccbfe43529bd1e276b5b911cc75015370f1d4b4a256fb
+    tag: 3.9.5@sha256:e9b87ddd0e6087792586e2cbba5ce91eadcbdd3d3673249aa4606f7207408c0d
   imagePullSecrets: []
   replicaCount: 1
   nameOverride: ""
